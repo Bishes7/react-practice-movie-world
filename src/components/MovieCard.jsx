@@ -1,7 +1,7 @@
 import React from "react";
 import poster from "../assets/poster.jpg";
 
-const MovieCard = ({ movieObj, handleOnDelete }) => {
+const MovieCard = ({ movieObj, handleOnDelete, addMovieList }) => {
   const { Title, imdbRating, Poster, Plot } = movieObj;
   return (
     <div className="container movie-card">
@@ -17,8 +17,18 @@ const MovieCard = ({ movieObj, handleOnDelete }) => {
           <p>{Plot}</p>
 
           <div className="d-flex justify-content-between">
-            <button className="btn btn-warning">Drama</button>
-            <button className="btn btn-primary">Action</button>
+            <button
+              className="btn btn-warning"
+              onClick={() => addMovieList("drama")}
+            >
+              Drama
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => addMovieList("action")}
+            >
+              Action
+            </button>
           </div>
           <div className="d-grid mt-2">
             <button className="btn btn-danger" onClick={handleOnDelete}>
